@@ -25,6 +25,8 @@ author:
 description: >- # this means to ignore newlines until "baseurl:"
   Stuff about embedded Rust. 
 
+permalink: /:year/:month/:day/:title:output_ext
+
 show_excerpts: true # set to true to show excerpts on the homepage
 
 baseurl: "" # the subpath of your site, e.g. /blog
