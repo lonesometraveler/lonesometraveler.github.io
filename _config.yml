@@ -30,7 +30,7 @@ permalink: /:year/:month/:day/:title:output_ext
 show_excerpts: false # set to true to show excerpts on the homepage
 
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://lonesometraveler.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 twitter_username: lonesometravel2
 github_username:  lonesometraveler
