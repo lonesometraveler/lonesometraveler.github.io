@@ -39,6 +39,7 @@ github_username:  lonesometraveler
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
 
 google_analytics: UA-161874283-1
 
