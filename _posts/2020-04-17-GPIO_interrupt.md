@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "GPIO Interrupt: Let me know when you need me"
+title: "GPIO Interrupt: Let Me Know When You Need Me"
 date: 2020-04-17 8:16:21 -0400
 categories: Rust embedded
 ---
