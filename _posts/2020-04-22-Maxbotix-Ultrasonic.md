@@ -9,7 +9,7 @@ categories: Rust embedded
 
 This week, I played around with an ultrasonic range finder and wrote a little library for it in Rust. The outcome is shown in the image above. This system measures the distance between myself and Ferris. 
 
-I used a ultrasonic sensor from [Maxbotix](https://www.maxbotix.com) to measure distance. This project monitors the sensor's output and shows the measured distance on a LED display.  
+I used an ultrasonic sensor from [Maxbotix](https://www.maxbotix.com) to measure distance. This project monitors the sensor's output and shows the measured distance on a LED display.  
 
 Here are two new things I learned from this project:
 
