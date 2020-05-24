@@ -42,7 +42,7 @@ This week's experiment demonstrates injected conversion mode using a timer as an
 
 ### Configure PWM
 
-One way to configure a timer in PWM mode is to use `stm32f4xx-hal`’s `pwm` module. `pwm` module routes a timer's output to an output pin. Although outputting from a pin is not required to use a timer as an external trigger, being able to see the pulse may be helpful for debug/troubleshooting.
+One way to configure a timer in PWM mode is to use `stm32f4xx-hal`’s `pwm` module. `pwm` module routes a timer's output to an output pin. Although output from a pin is not required to use a timer as an external trigger, being able to see the pulse may be helpful for debugging/troubleshooting.
 
 In the code below, we create a `pwm` instance with `TIM1` and set its frequency to 10Hz. This will generate 0.1 seconds pulse.
 
@@ -82,7 +82,7 @@ fn configure_timer1() {
 
 Next, we configure our ADC in a way it -
 - starts a conversion when triggered by `TIM1`
-- generates an interrupt request upon end of conversion
+- generates an interrupt request upon the end of conversion
 
 We use `AdcConfig` to do that. Here, we specify the rising edge of `TIM1`'s signal to be the external trigger source.
 
@@ -129,7 +129,7 @@ unsafe {
 
 That is it. Injected conversion should be triggered on the rising edge of the signal.
 
-The rest is pretty much the same as [last week’s ADC experiment]({{ site.url }}/2020/05/08/ADC-Interrupt.html). When conversion is done, EOC end of conversion bit is set and an interrupt request is generated. 
+The rest is pretty much the same as [last week’s ADC experiment]({{ site.url }}/2020/05/08/ADC-Interrupt.html). When a conversion is done, EOC end of conversion bit is set and an interrupt request is generated. 
 
 In the interrupt handler below, we read the currently available ADC value and print it out.  `current_sample()` reads the result from ADC’s DR register and clears the EOC flag automatically. There is no need to call `clear_end_of_conversion_flag()`.
 
