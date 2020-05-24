@@ -18,7 +18,7 @@ In this post, I will show how I did a blinking LED application using a timer int
 
 ### 1. Wrap shared resources
 
-The goal is to flip a desired state of a LED in an interrupt handler and turn on/off the LED accordingly in the main. So, it is necessary to share the state of LED and a timer peripheral between ISR and the main code.
+The goal is to flip the desired state of a LED in an interrupt handler and turn on/off the LED accordingly in the main. So, it is necessary to share the state of LED and a timer peripheral between ISR and the main code.
 
 In embedded Rust, we use statically allocated `Mutex` to share peripherals and variables between different contexts.
 
@@ -90,10 +90,10 @@ loop {
 }
 ```
 
-See how I use critical section by calling `cortex_m::interrupt::free` to access `LED_STATE`. This and `Mutex` ensures an exclusive access to the shared resource.
+See how I use critical section by calling `cortex_m::interrupt::free` to access `LED_STATE`. This and `Mutex` ensure exclusive access to the shared resource.
 
 ## Code: Blink Blink
-Here are two codes for blinking LED. One for [STM32F3DISCOVERY board](https://www.st.com/en/evaluation-tools/stm32f3discovery.html) and the other for [Nucleo-F429ZI](https://www.st.com/en/evaluation-tools/nucleo-f429zi.html). I used `stm32f3xx_hal` for DISCOVERY and `stm32f4xx_hal` for Nucleo. The basic concept is the same between the two implementations. Only differences are the way to instantiate the timer peripheral and the call to clear the interrupt flag by using HAL specific methods.
+Here are two codes for the blinking LED. One for [STM32F3DISCOVERY board](https://www.st.com/en/evaluation-tools/stm32f3discovery.html) and the other for [Nucleo-F429ZI](https://www.st.com/en/evaluation-tools/nucleo-f429zi.html). I used `stm32f3xx_hal` for DISCOVERY and `stm32f4xx_hal` for Nucleo. The basic concept is the same between the two implementations. Only differences are the way to instantiate the timer peripheral and the call to clear the interrupt flag by using HAL specific methods.
 
 ### STM32F3DISCOVERY
 

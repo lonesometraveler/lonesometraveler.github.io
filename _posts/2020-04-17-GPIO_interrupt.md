@@ -102,7 +102,7 @@ Here, I clear the interrupt flag by calling `btn.clear_interrupt_pending_bit()` 
 
 ## Example 2: Interrupt with Two Buttons
 
-Ok, that was pretty easy. But, like I said, `EXTI15_10` means interrupt requests can be generated from any of six lines. In the example above, we know it is `BUTTON` that triggers an interrupt because there are no other buttons. But, what if we have two buttons and want to call different functions depending on which button is pressed? My second example handles interrupt requests from two buttons.
+Ok, that was pretty easy. But, as I said, `EXTI15_10` means interrupt requests can be generated from any of six lines. In the example above, we know it is `BUTTON` that triggers an interrupt because there are no other buttons. But, what if we have two buttons and want to call different functions depending on which button is pressed? My second example handles interrupt requests from two buttons.
 
 ### Configure resources
 
@@ -247,7 +247,7 @@ fn another_button_cb() {
 }
 ```
 
-If I do it this way, I don’t even need Mutex for my buttons any more. Once I configure the buttons and enable the interrupt, they generate interrupt requests and I can access them through EXTI. I don’t need my buttons in the interrupt handler. So, my shared resources are now just LEDs and EXTI.
+If I do it this way, I don’t even need Mutex for my buttons anymore. Once I configure the buttons and enable the interrupt, they generate interrupt requests and I can access them through EXTI. I don’t need my buttons in the interrupt handler. So, my shared resources are now just LEDs and EXTI.
 
 ```rust
 static LED: Mutex<RefCell<Option<PB7<Output<PushPull>>>>> = Mutex::new(RefCell::new(None));

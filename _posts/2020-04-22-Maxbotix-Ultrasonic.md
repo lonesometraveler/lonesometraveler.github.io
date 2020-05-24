@@ -55,7 +55,7 @@ When `read` method is called, it goes like this:
 
 ### Three Sensor Models
 
-The sensor comes in 3 models: LV, XL and HR. They all work the same way. Just different resolutions.  To calculate the distance, we use the model specific scale factor.
+The sensor comes in 3 models: LV, XL, and HR. They all work the same way. Just different resolutions.  To calculate the distance, we use the model-specific scale factor.
 
 * LV: 147uS/inch
 * XL: 58uS/cm

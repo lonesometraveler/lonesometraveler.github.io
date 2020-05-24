@@ -5,7 +5,7 @@ date: 2020-05-08 17:11:21 -0400
 categories: Rust embedded
 ---
 
-[Polling in a loop is the simplest way to use the ADC]({{ site.url }}/2020/05/01/ADC-PWM.html). But it makes it difficult to run other codes while the ADC is running. It would be nice if we can make it interrupt based. This post will show how to do a simple interrupt based ADC in embedded Rust.
+[Polling in a loop is the simplest way to use the ADC]({{ site.url }}/2020/05/01/ADC-PWM.html). But it makes it difficult to run other codes while the ADC is running. It would be nice if we can make it interrupt-based. This post will show how to do a simple interrupt based ADC in embedded Rust.
 
 ## Ingredients
 
@@ -93,7 +93,7 @@ fn ADC() {
 }
 ```
 
-In the handler, we take the ADC module out of Mutex and call `current_sample()`. This method reads from the ADC_DR register and clears the EOC flag. We update the PWM duty cycle based on the ADC value, and finally restart the conversion by calling `start_conversion()` before we move out of the ISR.
+In the handler, we take the ADC module out of Mutex and call `current_sample()`. This method reads from the ADC_DR register and clears the EOC flag. We update the PWM duty cycle based on the ADC value, and finally, restart the conversion by calling `start_conversion()` before we move out of the ISR.
 
 That's it! Now our main looks like the code below. There is nothing in the loop. ADC reading and PWM adjustment are all happening in the ISR.
 
